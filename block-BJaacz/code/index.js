@@ -211,16 +211,12 @@ const grades = [
 // }
 
 
-function isAdult(people){
-    if(people.age > 18){
-      console.log(true);
-    } else {
-      console.log(false);
-    }
+function isAdult(personDetails){
+    return personDetails.age > 18;
 }
-console.log(isAdult(people[0]));
-console.log(isAdult(people[1]));
-console.log(isAdult(people[2]));
+// console.log(isAdult(people[0]));
+// console.log(isAdult(people[1]));
+// console.log(isAdult(people[2]));
 
 /*
   Create a function named isMale which accepts:
@@ -233,16 +229,12 @@ console.log(isAdult(people[2]));
     console.log(isMale(grade[2])); // true
 */
 
-function isMale(grades){
-  if(grades.sex === 'M'){
-    console.log(true);
-  } else{
-    console.log(false);
-  }
+function isMale(personDetails){
+  return personDetails.sex === 'M';
 }
-console.log(isMale(grades[0]));
-console.log(isMale(grades[1]));
-console.log(isMale(grades[2]));
+// console.log(isMale(grades[0]));
+// console.log(isMale(grades[1]));
+// console.log(isMale(grades[2]));
 
 /*
   Create a function named isFemale which accepts:
@@ -255,16 +247,12 @@ console.log(isMale(grades[2]));
     console.log(isFemale(grade[2])); // false
 */
 
-function isFemale(grades){
-  if(grades.sex === 'F'){
-    console.log(true);
-  } else{
-    console.log(false);
-  }
+function isFemale(personDetails){
+  return personDetails.sex === 'F';
 }
-console.log(isFemale(grades[0]));
-console.log(isFemale(grades[1]));
-console.log(isFemale(grades[2]));
+// console.log(isFemale(grades[0]));
+// console.log(isFemale(grades[1]));
+// console.log(isFemale(grades[2]));
 
 /*
   Create a function named isGradeA which accepts:
@@ -277,16 +265,12 @@ console.log(isFemale(grades[2]));
     console.log(isGradeA(grade[2])); // true
 */
 
-function isGradeA(grades){
-  if(grades.grade > 12){
-    console.log(true);
-  } else{
-    console.log(false);
-  }
+function isGradeA(personDetails){
+  return personDetails.grade > 12;
 }
-console.log(isGradeA(grades[0]));
-console.log(isGradeA(grades[1]));
-console.log(isGradeA(grades[2]));
+// console.log(isGradeA(grades[0]));
+// console.log(isGradeA(grades[1]));
+// console.log(isGradeA(grades[2]));
 
 /*
   Create a function named isGradeB which accepts:
@@ -299,16 +283,12 @@ console.log(isGradeA(grades[2]));
     console.log(isGradeB(grade[2])); // false
 */
 
-function isGradeB(grades){
-  if(grades.grade <= 12){
-    console.log(true);
-  } else{
-    console.log(false);
-  }
+function isGradeA(personDetails){
+  return personDetails.grade > 8 && personDetails.grade <= 12;
 }
-console.log(isGradeB(grades[0]));
-console.log(isGradeB(grades[1]));
-console.log(isGradeB(grades[2]));
+// console.log(isGradeB(grades[0]));
+// console.log(isGradeB(grades[1]));
+// console.log(isGradeB(grades[2]));
 
 /*
   Create a function named isGradeC which accepts:
@@ -321,16 +301,9 @@ console.log(isGradeB(grades[2]));
     console.log(isGradeC(grade[2])); // false
 */
 
-function isGradeC(grades){
-  if(grades.grade <= 8){
-    console.log(true);
-  } else{
-    console.log(false);
-  }
+function isGradeA(personDetails){
+  return personDetails.grade <= 8;
 }
-console.log(isGradeC(grades[0]));
-console.log(isGradeC(grades[1]));
-console.log(isGradeC(grades[2]));
 
 
 /*
@@ -348,16 +321,16 @@ console.log(isGradeC(grades[2]));
       { name: 'Liam Smith', age: 20 },
     ];
 */
-let newArrrr= [];
-function filterAdult(people, cb){
-  for(let i = 0; i < people.length; i++){
-    newArrrr.push(people[i]);
+
+function filterAdult(arr){
+  let final = [];
+  for(let person of arr){
+    if(isAdult(person)){
+      final.push(person);
+    }
   }
-  return newArrrr;
+  return final;
 }
-console.log(filterAdult(people), isAdult);
-
-
 
 
 /*
@@ -379,6 +352,16 @@ console.log(filterAdult(people), isAdult);
     ];
 */
 
+function filterMale(arr){
+  let final = [];
+  for(let person of arr){
+    if(isMale(person)){
+      final.push(person);
+    }
+  }
+  return final;
+}
+
 /*
   Create a function named filterFemale which accepts:
     - an array of objects
@@ -397,6 +380,17 @@ console.log(filterAdult(people), isAdult);
       { name: 'Jane', grade: 9, sex: 'F' },
     ]
 */
+
+function filterFemale(arr){
+  let final = [];
+  for(let person of arr){
+    if(isFemale(person)){
+      final.push(person);
+    }
+  }
+  return final;
+}
+
 
 /*
   Create a function named filterGradeA which accepts:
@@ -418,6 +412,16 @@ console.log(filterAdult(people), isAdult);
     ]
 */
 
+function filterGradeA(arr){
+  let final = [];
+  for(let person of arr){
+    if(isGradeA(person)){
+      final.push(person);
+    }
+  }
+  return final;
+}
+
 /*
   Create a function named filterGradeB which accepts:
     - an array of objects
@@ -437,6 +441,18 @@ console.log(filterAdult(people), isAdult);
     ]
 */
 
+
+function filterGradeB(arr){
+  let final = [];
+  for(let person of arr){
+    if(isGradeB(person)){
+      final.push(person);
+    }
+  }
+  return final;
+}
+
+
 /*
   Create a function named filterGradeC which accepts:
     - an array of objects
@@ -454,6 +470,17 @@ console.log(filterAdult(people), isAdult);
       { name: 'Donald', grade: 5, sex: 'M' },
     ]
 */
+
+function filterGradeC(arr){
+  let final = [];
+  for(let person of arr){
+    if(isGradeC(person)){
+      final.push(person);
+    }
+  }
+  return final;
+}
+
 
 /*
 We are repeating lots of code in above functions like filterGradeC, filterGradeB, filterGradeA, filterAdult. We will fix
@@ -476,6 +503,16 @@ filter is a higher order function.
     console.log(filter(grade, isGradeC));
 */
 
+function filter(arr, cb){
+  let final = [];
+  for(let person of arr){
+    if(cb(person)){
+      final.push(person);
+    }
+  }
+  return final;
+}
+
 /*
   Create a function named multiplyBy which accepts:
     - a number (num)
@@ -494,3 +531,21 @@ filter is a higher order function.
     console.log(multiplyByFive(20)); // 180
     console.log(multiplyByFive(5)); // 45
 */
+
+function multiplyBy(num){
+  return function(num2){
+    return num * num2;
+  }
+}
+let multiplyByFive = multiplyBy(5);
+
+console.log(multiplyByFive(10)); // 50
+    console.log(multiplyByFive(20)); // 100
+    console.log(multiplyByFive(5)); // 25
+
+let multiplyByNine = multiplyBy(9);
+
+console.log(multiplyByFive(10)); // 90
+    console.log(multiplyByFive(20)); // 180
+    console.log(multiplyByFive(5)); // 45
+

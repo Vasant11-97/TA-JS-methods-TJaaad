@@ -11,11 +11,33 @@ let words = [
 
 // - Write a function findLongestWord that takes an array of words and returns the longest word from the array. (Use above array "words" to test it). If there are 2 with the same length, it should return the first occurrence.
 
+function findLongestWord(arr){
+  let sortedArray = arr.sort((a,b)=>a.length - b.length);
+  return sortedArray[sortedArray.length-1];
+}
+findLongestWord(words);
+
 // - Convert the above array "words" into an array of length of word instead of word.
+
+function lengthOfWords(arr){
+  let wordLength = arr.map(ele => ele.length);
+  return wordLength;
+}
+lengthOfWords(words);
 
 // - Create a new array that only contains word with atleast one vowel.
 
+function arrayVowel(arr){
+  let vowels = ["a", "e", "i", "o", "u"];
+  for(let i=0; i<vowels.length; i++) {
+    return arr.filter(ele => ele.includes(vowels[i]));
+  }
+}
+arrayVowel(words);
+
 // - Find the index of the word "rhythm"
+
+console.log(words.indexOf("rhythm"));
 
 // - Create a new array that contians words not starting with vowel.
 
@@ -24,6 +46,12 @@ let words = [
 let numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 // - Create a sumArray function that takes an array of number as a parameter, and calculate the sum of all its numbers
+
+function sumArray(arr){
+  let sumOfNumber = arr.sort((a,b) => a + b);
+  return sumOfNumber;
+}
+sumArray(numbers);
 
 // - Make a new array that contains number multiplied by 3 like [6, 18, 27 ...]
 

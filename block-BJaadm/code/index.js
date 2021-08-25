@@ -15,25 +15,52 @@ let persons = [
 
 // Create an array peopleName and store value of sex key from persons array
 
+let peopleName = persons.map(ele => ele.name);
+
 // Create an array peopleGrade and store the value of grade key from persons array
+
+let peopleGrade = persons.map(ele => ele.grade);
 
 // Create an array peopleSex and store the value of sex key from persons array
 
+let peopleSex = persons.map(ele => ele.name);
+
 // Log the filtered named of people in peopleName that starts with 'J' or 'P'
+
+let filteredPersonJ = persons.filter((w) => w.name[0] === 'J');
+console.log(filteredPersonJ);
+
 
 // Log the length of filtered named of people in peopleName that starts with 'A' and 'C'
 
+let filteredPersonA = persons.filter((w) => w.name[0] === 'A');
+console.log(filteredPersonA);
+
 // Log all the filtered male ('M') in persons array
+
+let filteredMale = persons.filter((w) => w.sex === 'M');
 
 // Log all the filtered female ('F') in persons array
 
+let filteredMale = persons.filter((w) => w.sex === 'F');
+
 // Log all the filtered female ('F') whose name starts with 'C' or 'J' in persons array
+
+let filteredFemales = persons.filter((w) => w.name === 'C' || 'J');
 
 // Log all the even numbers from peopleGrade array
 
+let evenGrade = persons.filter((w) => w % 2 === 0);
+
 // Find the first name that starts with 'J' in persons array and log the object
 
+let filteredPersonJ = persons.filter((w) => w.name[0] === 'J');
+console.log(filteredPersonJ);
+
 // Find the first name that starts with 'P' in persons array and log the object
+
+let filteredPersonJ = persons.filter((w) => w.name[0] === 'P');
+console.log(filteredPersonJ);
 
 // Find the first name that starts with 'J', grade is greater than 10 and is a female
 

@@ -17,17 +17,41 @@ let persons = [
 
 // Find the average grade
 
+persons.reduce((acc, cv) => {
+  return acc + cv.grade;
+} ,0) / persons.length;
+
 // Find the average grade of male
+
+let maleGrade = persons.filter((male) => male.sex === 'M');
+maleGrade.reduce((acc, cv) => {
+  return acc + cv.grade;
+}, 0) / maleGrade.length;
 
 // Find the average grade of female
 
+let femaleGrade = persons.filter((female) => female.sex === 'F');
+femaleGrade.reduce((acc, cv) => {
+  return acc + cv.grade;
+}, 0) / femaleGrade.length;
+
 // Find the highest grade
+
+let personsGrade = persons.map((ele) => ele.grade);
+[...personsGrade].sort((a, b) => a - b).pop();
 
 // Find the highest grade in male
 
+[...maleGrade].sort((a, b) => a - b).pop();
+
 // Find the highest grade in female
 
+[...femaleGrade].sort((a, b) => a - b).pop();
+
 // Find the highest grade for people whose name starts with 'J' or 'P'
+
+persons.filter((person) => person.name.startsWith('J') || person.name.startsWith('P')).sort((a, b) => a - b).pop();
+
 
 const fruitBasket = [
   'banana',
@@ -52,6 +76,8 @@ Output:
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
 
+
+
 /* 
 
 Use the fruitBasket array to create an array of array. Each array will contain two values name of fruit and number of times
@@ -69,6 +95,10 @@ const data = [
   [10, 11, 12],
 ];
 
+data.reduce((acc, cv) => {
+  return acc.concat(cv)
+});
+
 // Using reduce flat data array
 
 const dataTwo = [
@@ -78,7 +108,10 @@ const dataTwo = [
   [[10, 11], 12],
 ];
 
-// Using reduce flat dataTwo array
+dataTwo.reduce((acc, cv) => {
+  return acc.concat(cv).flat(9);
+});
+
 
 /*
 
